@@ -10,7 +10,34 @@
     border: 2px solid black;
 }
 .row{
+    position: relative;
     display: flex;
+}
+.stick{
+    width: 400px;
+    height: 6px;
+    border-radius: 5px;
+    background-color: black;
+    position: absolute;
+    z-index: 10;
+    display: none;
+}
+.row-stick{
+    left: -42px;
+    top: 49px;
+}
+.column-stick{
+    rotate: z 90deg;
+    top: 150px;
+}
+.diagonal-stick{
+    width: 525px;
+}
+.diagonal1-stick{
+    rotate: z 45deg;
+}
+.diagonal2-stick{
+    rotate: z 135deg;
 }
 .cell{
     border: 2px solid black;

@@ -55,11 +55,14 @@ function GameOver(Player){
 }
 
 reset.addEventListener("click", () => {
-    console.log("Reset clicked");
+    document.querySelector(".stick").style.display = "none";
     ClearAllCell();
     CrossMoves = [];
     CircleMoves = [];
     isClickEnable = true;
+    document.querySelectorAll(".stick").forEach(element => {
+        element.style.display = "none";
+    });
     result.style.display = "none";
     first_player = true;
 });
@@ -74,16 +77,24 @@ function ClearAllCell(){
 function isGameFinished(cell){
     let row = cell.dataset.row;
     let column = cell.dataset.column;
-    if(CheckRowWise(row)) return true;
-    if(CheckColumWise(column)) return true;
-    if((row == "row1" && column == "column1") 
-    || (row == "row2" && column == "column2") 
-    || (row == "row3" && column == "column3")){
+    if(CheckRowWise(row)) {
+        document.querySelector(`.${row}-stick`).style.display = "block";
+        return true;
+    }
+    if(CheckColumWise(column)) {
+        document.querySelector(`.${column}-stick`).style.display = "block";
+        return true;
+    }
+    if(((row == "row1" && column == "column1") 
+        || (row == "row2" && column == "column2") 
+    || (row == "row3" && column == "column3")) && (ChechDiagonal(1))){
+        document.querySelector(".diagonal1-stick").style.display = "block";
         if(ChechDiagonal(1)) return true;
     }
-    if((row == "row1" && column == "column3") 
-    || (row == "row2" && column == "column2") 
-    || (row == "row3" && column == "column1")){
+    if(((row == "row1" && column == "column3") 
+        || (row == "row2" && column == "column2") 
+    || (row == "row3" && column == "column1")) && (ChechDiagonal(2))){
+        document.querySelector(".diagonal2-stick").style.display = "block";
         if(ChechDiagonal(2)) return true;
     }
     return false;
