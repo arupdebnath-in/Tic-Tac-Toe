@@ -1,0 +1,55 @@
+.container-Wraper{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.board{
+    display: block;
+    border: 2px solid black;
+}
+.row{
+    display: flex;
+}
+.cell{
+    border: 2px solid black;
+    width:100px;
+    height:100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cell:hover{
+    background-color: rgb(199, 199, 199);
+}
+.cell img{
+    width: 75%;
+    display: none;
+    transform: 1s;
+}
+
+.result{
+    width: 500px;
+    height: 250px;
+    background-color: #8da5a5;
+    border-radius: 20px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.result button{
+    width: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #448271;
+    color: white;
+}
